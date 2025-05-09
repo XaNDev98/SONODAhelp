@@ -1,0 +1,35 @@
+/* Estilo para o botão de logout */
+.logout-button {
+  background-color: #007bff; /* Cor vibrante azul */
+  color: #fff; /* Cor do texto */
+  font-size: 12px; /* Tamanho da fonte reduzido */
+  font-weight: bold; /* Negrito para dar destaque */
+  padding: 8px 16px; /* Padding mais compacto */
+  border: 1px solid #fff; /* Borda branca */
+  border-radius: 30px; /* Cantos arredondados suaves */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease, box-shadow 0.2s ease; /* Efeitos de transição mais suaves */
+}
+
+.logout-button i {
+  margin-right: 6px; /* Espaçamento entre o ícone e o texto */
+  font-size: 12px; /* Tamanho do ícone ajustado */
+}
+
+.logout-button:hover {
+  background-color: #0056b3; /* Cor mais escura azul no hover */
+  transform: translateY(-2px); /* Efeito de elevação ao passar o mouse */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra mais suave no hover */
+}
+
+.logout-button:focus {
+  outline: none; /* Remove o contorno padrão do foco */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Sombra de foco mais leve com azul */
+}
+
+.logout-button:active {
+  transform: translateY(0); /* Efeito de compressão ao clicar */
+}
