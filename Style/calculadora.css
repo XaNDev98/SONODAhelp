@@ -1,0 +1,218 @@
+strong {
+color: #0F7BDE;
+font-family: 'Poppins', sans-serif;
+}
+.container {
+    min-width: 100%; /* A largura máxima será 100% */
+    width: auto; /* Largura definida para não ultrapassar */
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    margin: 0 auto; /* Centraliza a container */ 
+    margin-left: 50%;
+}
+
+h2 {
+    color: #080808;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.form-group label {
+    color: #555;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+.form-control {
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    width: 100%;
+    margin-bottom: 20px;
+    transition: border 0.3s ease;
+    background-color: #fafafa;
+}
+.form-control:focus {
+    border-color: #ff6f00;
+    outline: none;
+    background-color: #fff;
+}
+.btn {
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.btn-primary {
+    background-color: #ff6f00;
+    color: white;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #000000;
+}
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    border: none; 
+}
+.btn-success:hover {
+    background-color: #000000;
+}
+.btn i {
+    font-size: 10px;        /* Ícone menor */
+    margin-right: 8px;      /* Espaço entre o ícone e o texto */
+    padding: 0;             /* Remove padding extra */
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+#entradasAdicionais {
+    margin-top: 20px;
+}
+#resultado {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #e9f7ef;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #333;
+    border: 2px solid #0F7BDE;
+    text-align: center;
+    font-weight: bold;
+}
+.input-container button {
+    padding: 6px 12px;     /* Diminuindo o padding */
+    font-size: 12px;        /* Reduzindo o tamanho da fonte */
+    border-radius: 8px;     /* Bordas arredondadas */
+    font-weight: bold;
+    display: inline-flex;   /* Para alinhar o ícone e o texto de forma mais compacta */
+    align-items: center;
+}
+
+.input-container button i {
+    font-size: 20px;        /* Ícone menor */
+    margin-right: 5px;      /* Espaço entre o ícone e o texto */
+}
+
+.btn-primary {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+}
+
+.btn-success {
+    background-color: #3908eb;
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover, .btn-success:hover {
+    opacity: 0.9;          /* Leve efeito de hover */
+} 
+body.dark-mode  {
+    color: #f0f0f0; 
+    background-color: #414446;
+}  
+body.dark-mode H2 {
+    color: #f0f0f0; 
+}  
+/* Estilo para o modo escuro: fonte branca nos campos de entrada e saída */
+body.dark-mode input[type="time"] {
+    color: #fff; /* Texto branco */
+    background-color: #333; /* Fundo escuro para contrastar com o texto */
+}
+
+/* Estilo para garantir que o label tenha uma cor visível no modo escuro */
+body.dark-mode label {
+    color: #fff; /* Cor branca para os rótulos no modo escuro */
+} 
+body.dark-mode #resultado {
+    background-color: #041a33;
+    color: white;
+}
+
+
+
+/* Estilo para o bloco de resultados */
+#resultados {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f4f9ff;  /* Fundo suave e agradável */
+    border-radius: 15px;
+    border: 2px solid #0F7BDE;  /* Borda azul vibrante */
+    font-size: 18px;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;  /* Suavizando a transição */
+}
+
+/* Estilo para cada item de resultado */
+.result-item {
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+/* Efeito de hover para os itens de resultado */
+.result-item:hover {
+    background-color: #e1f3ff;
+    border-color: #0F7BDE;
+}
+
+/* Estilo para o título do resultado */
+h3 {
+    font-size: 24px;
+    color: #0F7BDE;  /* Cor vibrante para o título */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo para o texto em strong dentro dos resultados */
+.result-item strong {
+    color: #0F7BDE;  /* Cor destacada para o texto em negrito */
+    font-size: 20px;
+}
+
+/* Estilo para os valores das horas */
+#resultados span {
+    color: #333;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+/* Modificação para modo escuro */
+body.dark-mode #resultados {
+    background-color: #1c1c1c;  /* Fundo mais escuro */
+    color: white;  /* Texto branco */
+    border-color: #ff6f00;  /* Borda dourada */
+}
+
+body.dark-mode .result-item {
+    background-color: #2c2c2c;  /* Fundo escuro para os itens */
+    border-color: #444;
+}
+
+body.dark-mode h3 {
+    color: #ff6f00;  /* Título laranja no modo escuro */
+}
+
+body.dark-mode .result-item:hover {
+    background-color: #3c3c3c;
+    border-color: #ff6f00;  /* Cor dourada no hover */
+}
+
+body.dark-mode .result-item strong {
+    color: #ff6f00;  /* Texto em negrito laranja no modo escuro */
+}

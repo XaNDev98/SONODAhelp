@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SONODA HELP</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!-- Ícones -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="../Style/Style.css">   
+    <link rel="stylesheet" href="../Style/Responsive.css">  
+    <link rel="stylesheet" href="../Style/efeitos.css">  
+    <link rel="stylesheet" href="../Style/darkMode.css">  
+    <script src="../JavaScript/darkMode.js" defer></script>  
+    <script src="../index.js" defer></script> 
+    <script src="../JavaScript/PDF-mensagens.js" defer></script>
+    <link rel="icon" href="../adress/a.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"> 
+</head> 
+
+<style> 
+    body.dark-mode .command-item {
+        background-color: #333333;
+        color: white;
+    } 
+    /* Estilo para o campo de input */
+    .styled-input {
+        width: auto;
+        padding: 12px 15px;
+        font-size: 12px;
+        border-radius: 25px;
+        border: 2px solid #007bff;
+        outline: none;
+        transition: all 0.3s ease;
+    }
+
+    /* Efeito de foco */
+    .styled-input:focus {
+        border-color: #0056b3;
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+
+    /* Efeito de placeholder */
+    .styled-input::placeholder {
+        color: #7a7a7a;
+        font-style: italic;
+    }
+</style>
+<body> 
+
+    <!-- Header -->
+    <div class="header d-flex justify-content-between align-items-center">
+        <div class="logo">
+            <h4 class="m-0">
+                <img class="sonoda" src="../adress/Sonoda Ponto.ico" alt="logo">  <span class="text-primary">SONODA HELP</span>
+            </h4>
+        </div>
+        <div>
+            <span class="name-container">
+                <strong></strong> | <span class="tec-alexandre">Tec Alexandre</span><button id="themeToggle" class="theme-toggle" title="Alterar tema"><i class="fas fa-sun"></i></button>
+            </span>
+        </div>
+    </div>
+
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar p-3" style="position: relative;">
+            <ul class="nav flex-column">
+                <li class="nav-item"><a href="../Sidebar/instaladores.html" class="nav-link active"><i class="fas fa-home"></i>Home</a></li> 
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" id="video-link" onclick="toggleMenu('video', event)"><i class="fas fa-video"></i> Vídeo <i class="fas fa-chevron-down" id="video-arrow"></i></a>
+                        <ul id="video-submenu" class="nav flex-column" style="display: none;">
+                            <li class="nav-item"><a href="../Videos/Videos_OFF.html" class="nav-link" onclick="keepMenuOpen(event)">Sistema Offline</a></li>
+                            <li class="nav-item"><a href="../Videos/Video_Web.html" class="nav-link" onclick="keepMenuOpen(event)">Sistema Web</a></li>
+                            <li class="nav-item"><a href="../Videos/Videos_AcadAcesso.html" class="nav-link" onclick="keepMenuOpen(event)">Demais Sistemas</a></li>
+                        </ul>
+                    </li> 
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" id="relogios-link" onclick="toggleMenu('relogios', event)"><i class="fas fa-clock"></i> Relógios <i class="fas fa-chevron-down" id="relogios-arrow"></i></a>
+                        <ul id="relogios-submenu" class="nav flex-column" style="display: none;">
+                            <li class="nav-item"><a href="../Rep/Control_id.html" class="nav-link" onclick="keepMenuOpen(event)">Control ID</a></li>
+                            <li class="nav-item"><a href="../Rep/Smartpoint.html" class="nav-link" onclick="keepMenuOpen(event)">Smart Point</a></li>
+                            <li class="nav-item"><a href="../Rep/Miniprint.html" class="nav-link" onclick="keepMenuOpen(event)">Miniprint</a></li> 
+                            <li class="nav-item"><a href="../Rep/Printpoint2.html" class="nav-link" onclick="keepMenuOpen(event)">PrintPoint 2</a></li>
+                            <li class="nav-item"><a href="../Rep/Printpoint3.html" class="nav-link" onclick="keepMenuOpen(event)">PrintPoint 3</a></li>
+                            <li class="nav-item"><a href="../Rep/Outros.html" class="nav-link" onclick="keepMenuOpen(event)">Outros</a></li>
+                        </ul>
+                    </li> 
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" id="checklist-link" onclick="toggleMenu('checklist', event)"><i class="fas  fa-check"></i> Checklist <i class="fas fa-chevron-down" id="video-arrow"></i></a>
+                        <ul id="checklist-submenu" class="nav flex-column" style="display: none;">
+                            <li class="nav-item"><a href="../Treinamento/Sistema_OFF.html" class="nav-link" onclick="keepMenuOpen(event)">Sistema Offline</a></li>
+                            <li class="nav-item"><a href="../Treinamento/Sistema_WEB.html" class="nav-link" onclick="keepMenuOpen(event)">Sistema Web</a></li>
+                            <li class="nav-item"><a href="../Treinamento/Sistema_acad_acess_escola.html" class="nav-link" onclick="keepMenuOpen(event)">Demais Sistemas</a></li>
+                            <li class="nav-item"><a href="../Treinamento/treinamento_geral.html" class="nav-link" onclick="keepMenuOpen(event)">Treinamento Geral</a></li>
+                        </ul>
+                    </li>  
+                    <li class="nav-item"><a href="../Sidebar/Resoluçao.html" class="nav-link"><i class="fas fa-lightbulb"></i> Resoluções</a></li> 
+                    <li class="nav-item"><a href="../Sidebar/comercial.html" class="nav-link"><i class="fas fa-coins"></i> Comercial</a></li>
+                    <li class="nav-item"><a href="../Sidebar/calculadora.html" class="nav-link"><i class="fas fa-calculator"></i> Calculadora</a></li> 
+                    <li class="nav-item"><a href="../Sidebar/atualizações.html" class="nav-link"><i class="fas fa-sync"></i> Atualizações</a></li>  
+                    <li class="nav-item"><a href="https://sonodaponto.com.br/pis/" target="_blank" class="nav-link"><i class="fas fa-file-alt"></i> Gerar PIS</a></li> 
+                </li>
+            </ul>
+        
+            <!-- "Mensagens " fixado na parte inferior da sidebar -->
+            <div class="position-absolute" style="bottom: 5px; margin-right: -5px;">
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="../Sidebar/Mensagens.html" class="nav-link"><i class="fas fa-comment"></i> Mensagens</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content container-fluid">
+            <h5 class="font-weight-bold">MENSAGENS PRONTAS</h5><br>
+            <ul class="nav nav-tabs mb-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="mens_chamado" onclick="reloadPage('Chamado')">CHAMADO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="mens_vendedor" onclick="reloadPage('Vendedor')">VENDEDOR / PROPOSTAS</a>
+                </li>
+            </ul>
+    
+            <!-- Campo de busca -->
+            <div class="d-flex justify-content-center mb-4">
+                <input type="text" class="form-control w-50" id="search-input" placeholder="Buscar...">
+                <button class="btn btn-primary ml-2" onclick="searchContent()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+    
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <div id="Chamado" class="tab-pane active"> <!-- ABA DE CHAMADO -->
+                    <div class="command-list" id="ChamadoContent">
+                        <div class="command-item">
+                            <span><strong>INICIO: </strong> Olá, tudo bem? Aqui é <span id="nome-tecnico">Alexandre</span>, como posso te ajudar? :)</span>
+                        
+                            <!-- Dropdown para selecionar o técnico -->
+                            <select id="tecnico-select" class="styled-input" onchange="atualizarNomeTecnico()"> 
+                                <option value="o Alexandre">Alexandre</option>
+                                <option value="a Andressa">Andressa</option>
+                                <option value="a Caroline">Caroline</option>
+                                <option value="a Diovana">Diovana</option>
+                                <option value="o Fellip">Fellip</option>
+                                <option value="o Gabriel">Gabriel</option>
+                                <option value="a Laura">Laura</option>
+                                <option value="a Tamara">Tamara</option>
+                                <option value="o Tiago">Tiago</option>
+                                <option value="o Vitor Goto">Vitor Goto</option>
+                            </select>
+                            <button id="copy-button" class="btn btn-primary btn-sm" onclick="copyTextWithName()">
+                                <i class="fas fa-copy copy-icon"></i>
+                            </button>
+                        </div>
+                        <div class="command-item">
+                            <span><strong>ALMOÇO: </strong>Estou em meu intervalo de almoço, mas assim que retornar, respondo sua mensagem. Fique tranquilo, logo volto para te ajudar! </span>
+                            <button class="btn btn-primary btn-sm" onclick="copyText('Estou em meu intervalo de almoço, mas assim que retornar, respondo sua mensagem. Fique tranquilo, logo volto para te ajudar!', this)">
+                                <i class="fas fa-copy copy-icon"></i>
+                            </button>
+                        </div>
+                        <div class="command-item">
+                            <span><strong>FINALIZANDO: </strong> Posso estar te auxiliando em mais alguma duvida ? </span>
+                            <button class="btn btn-primary btn-sm" onclick="copyText('Posso estar te auxiliando em mais alguma duvida ?', this)">
+                                <i class="fas fa-copy copy-icon"></i>
+                            </button>
+                        </div>
+                        <div class="command-item">
+                            <span><strong>FINALIZADO: </strong> Certo, estarei finalizando esse chamado. Até a Próxima 😉  </span>
+                            <button class="btn btn-primary btn-sm" onclick="copyText('Certo, estarei finalizado esse chamado. Até a Próxima 😉', this)">
+                                <i class="fas fa-copy copy-icon"></i>
+                            </button>
+                        </div>
+                        <div class="command-item">
+                            <span><strong>FIM DO EXPEDIENTE: </strong> Meu expediente chegou ao fim, e por falta de comunicação estarei encerrando esse chamado. Caso seja necessário pode abrir outro chamado  </span>
+                            <button class="btn btn-primary btn-sm" onclick="copyText('Meu expediente chegou ao fim, e por falta de comunicação estarei encerrando esse chamado. Caso seja necessário pode abrir outro chamado', this)">
+                                <i class="fas fa-copy copy-icon"></i>
+                            </button>
+                        </div> 
+                        <div class="command-item">
+                            <span><strong>CLIENTE ANALISANDO: </strong>Olá, gostaria de saber se teve a oportunidade de analisar o assunto da nossa última conversa. Fico à disposição para qualquer dúvida. Aguardo seu retorno! :)  </span>
+                            <button class="btn btn-primary btn-sm" onclick="copyText('Olá, gostaria de saber se teve a oportunidade de analisar o assunto da nossa última conversa. Fico à disposição para qualquer dúvida. Aguardo seu retorno! :)', this)">
+                                <i class="fas fa-copy copy-icon"></i>
+                            </button>
+                        </div>
+                        <div class="command-item">
+                            <span><strong>FALTA DE RETORNO: </strong> Por falta de comunicação estarei encerrando esse chamado. Caso seja necessário pode abrir outro chamado, até mais!</span>
+                            <button class="btn btn-primary btn-sm" onclick="copyText('Por falta de comunicação estarei encerrando esse chamado. Caso seja necessário pode abrir outro chamado, até mais!p', this)">
+                                <i class="fas fa-copy copy-icon"></i>
+                            </button>
+                        </div>
+                        <div class="command-item">
+                            <span><strong>FORA DO EXPEDIENTE: </strong> Neste momento estamos fora do horário de atendimento. O nosso horário é de segunda à sexta-feira, das 08:00hrs às 18:00hrs. <br> Logo mais estaremos de volta e você poderá entrar em contato conosco novamente! Te esperamos aqui em outro momento.😉 </span>
+                            <button class="btn btn-primary btn-sm" onclick="copyText('Neste momento estamos fora do horário de atendimento. O nosso horário é de segunda à sexta-feira, das 08:00hrs às 18:00hrs.\nLogo mais estaremos de volta e você poderá entrar em contato conosco novamente! Te esperamos aqui em outro momento.😉', this)">
+                                <i class="fas fa-copy copy-icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="Vendedor" class="tab-pane"> <!-- ABA DE VENDEDOR/PROPOSTAS -->
+                    <h5 class="font-weight-bold">ADICIONAL</h5>
+                    <div class="command-item" style="display: flex; flex-direction: column; align-items: flex-start; margin: 0; padding: 15px; ; border-radius: 8px; border: 1px solid transparent; border-image: linear-gradient(to right, #050C9C, #3572EF, #3ABEF9, #A7E6FF) 1;">
+                        <span style="margin: 5px 0; font-size: 16px; color: #007bff;">
+                            <strong>
+                                ADICIONAL DE <input type="number" id="numFuncionarios" placeholder="" style="width: 60px; text-align: center; border: 2px solid transparent; border-radius: 0; padding: 5px; font-size: 14px; border-image: linear-gradient(to right, #050C9C, #3572EF, #3ABEF9, #A7E6FF) 1;">FUNCIONÁRIOS
+                            </strong>
+                        </span>
+                        <span style="margin: 5px 0; font-size: 16px; color: #007bff;">
+                            <strong>VALOR ATUAL R$ 
+                                <input type="number" id="valorAtual" value="" style="width: 120px; text-align: center; border: 2px solid transparent; border-radius: 0; padding: 5px; font-size: 14px; border-image: linear-gradient(to right, #050C9C, #3572EF, #3ABEF9, #A7E6FF) 1;" step="0.01" oninput="calcularValorFinal()">
+                            </strong>
+                        </span>
+                        <span style="margin: 5px 0; font-size: 16px; color: #007bff;">
+                            <strong>COM ACRÉSCIMO DE R$ 
+                                <input type="number" id="acrescimoMensal" value="" style="width: 120px; text-align: center; border: 2px solid transparent; border-radius: 0; padding: 5px; font-size: 14px; border-image: linear-gradient(to right, #050C9C, #3572EF, #3ABEF9, #A7E6FF) 1;" step="0.01" oninput="calcularValorFinal()">
+                            </strong>
+                        </span>
+                        <span style="margin: 5px 0; display: flex; align-items: center; position: relative; width: 100%; justify-content: space-between; font-size: 16px; color: #007bff;">
+                            <strong>VALOR FINAL R$ 
+                                <input type="number" id="valorFinal" value="" style="width: 100px; text-align: center; padding: 5px; border-radius: 0; border: 2px solid transparent; background-color: #f0f8ff; font-weight: bold; font-size: 14px; border-image: linear-gradient(to right, #050C9C, #3572EF, #3ABEF9, #A7E6FF) 1;" step="0.01" readonly>
+                            </strong>
+                            <div>
+                                <button id="copyButton" class="btn btn-primary btn-sm" onclick="copyFinalValue()" style="background-color: #007bff; color: white; border-radius: 4px; padding: 6px 12px; font-size: 14px;">
+                                    <i class="fas fa-copy copy-icon"></i>
+                                </button>              
+                            </div>
+                        </span>
+                    </div>
+
+                    <div class="command-list" id="ChamadoContent"> <br><br>
+                        <h5 class="font-weight-bold">PROPOSTA</h5>
+                        <div class="command-item">
+                            <span>
+                                <strong>OFERTA ESPECIAL PARA NOVOS CLIENTES:</strong> Contamos com um pacote completo que inclui CONFIGURAÇÃO, TREINAMENTO PERSONALIZADO e SUPORTE CONTÍNUO SEM LIMITES. <br>
+                                Adaptamos a instalação para atender às especificidades da sua empresa. <br>
+                                Não utilizamos contratos com cláusulas de fidelidade, garantindo liberdade para cancelar quando quiser, sem multas ou taxas adicionais.<br>
+                                A Sonoda Ponto é reconhecida nacionalmente, oferecendo serviços de excelência em todo o Brasil. Escolha uma parceria que prioriza o sucesso do seu negócio.
+                            </span>
+                            <button class="btn btn-primary btn-sm" onclick="copyText('Contamos com um pacote completo que inclui CONFIGURAÇÃO, TREINAMENTO PERSONALIZADO e SUPORTE CONTÍNUO SEM LIMITES. Adaptamos a instalação para atender às especificidades da sua empresa. Não utilizamos contratos com cláusulas de fidelidade, garantindo liberdade para cancelar quando quiser, sem multas ou taxas adicionais. A Sonoda Ponto é reconhecida nacionalmente, oferecendo serviços de excelência em todo o Brasil. Escolha uma parceria que prioriza o sucesso do seu negócio.', this)">
+                                <i class="fas fa-copy copy-icon"></i> 
+                            </button> 
+                        </div>
+                
+                    </div> <br>
+
+                    <h5 class="font-weight-bold">SISTEMA DE PONTO</h5>
+                    <div class="command-item">
+                        <span>
+                            Atualmente trabalhamos com dois sistemas de ponto: o sistema de ponto web PRO e o sistema de ponto web ULTIMATE. <br>
+                            Ambos fazem a gestão de ponto e já são homologados à nova portaria 671, que utiliza somente o CPF. <br>
+                            Porém eles possuem alguns diferenciais, como: <br>
+                    
+                            <br><strong>WEB PRÓ POSSUI:</strong><br><br>
+                            - Backup automático em Nuvem, ou seja, sem chance das informações serem apagadas ou perdidas;<br>
+                            - Sistema totalmente na Web;<br>
+                            - Inclusão de ponto por QR Code;<br>
+                            - Inclusão de ponto por aplicativo com Geolocalização e foto em tempo real;<br>
+                            - Decomposição de cálculos em tela;<br>
+                            - Comprovante de ponto por E-mail;<br>
+                            - Feriados facultativos;<br>
+                            - Inclusão de ponto sem Internet/por Perímetro;<br>
+                            - Solicitar foto ao incluir ponto;<br>
+                            - Envio de atestado pelo aplicativo;<br>
+                            - Assinatura eletrônica do cartão ponto;<br>
+                            - Múltiplos contratos por funcionário;<br>
+                            - Feriados por cidades;<br>
+                            - Dashboard de rotatividade;<br>
+                            - Hierarquia de estruturas no aplicativo.<br><br>
+                    
+                            <strong>WEB ULTIMATE POSSUI:</strong><br><br>
+                            - Todos os recursos do WEB PRÓ;<br>
+                            - Gestão de Arquivos;<br><br>
+                            
+                            <strong>DIFERENCIAIS DO ULTIMATE:</strong><br><br>
+                            - Configurações de horário que passam da 00:00;<br>
+                            - Gestão de Arquivos (pago à parte);<br>
+                            - Reconhecimento facial online/offline (licença paga à parte);<br>
+                            - Pesquisas de QVT;<br>
+                            - Registro de atividades diárias (usado muito para motoristas);<br>
+                            - Feriados por departamentos;<br>
+                            - Logins separados por departamentos e empresas (caso a empresa possua mais de um CNPJ);<br>
+                            - Separação de extras após a meia-noite;<br>
+                            - Personalização de itens do sistema.<br>
+                        </span>
+                        <div>
+                            <button class="btn btn-primary btn-sm" onclick="copyText(`Atualmente trabalhamos com dois sistemas de ponto: o sistema de ponto web PRO e o sistema de ponto web ULTIMATE.
+                    
+                            Ambos fazem a gestão de ponto e já são homologados à nova portaria 671, que utiliza somente o CPF.
+                    
+                            Porém eles possuem alguns diferenciais, como:
+                    
+                            WEB PRÓ POSSUI:
+                            - Backup automático em Nuvem, ou seja, sem chance das informações serem apagadas ou perdidas;
+                            - Sistema totalmente na Web;
+                            - Inclusão de ponto por QR Code;
+                            - Inclusão de ponto por aplicativo com Geolocalização e foto em tempo real;
+                            - Decomposição de cálculos em tela;
+                            - Comprovante de ponto por E-mail;
+                            - Feriados facultativos;
+                            - Inclusão de ponto sem Internet/por Perímetro;
+                            - Solicitar foto ao incluir ponto;
+                            - Envio de atestado pelo aplicativo;
+                            - Assinatura eletrônica do cartão ponto;
+                            - Múltiplos contratos por funcionário;
+                            - Feriados por cidades;
+                            - Dashboard de rotatividade;
+                            - Hierarquia de estruturas no aplicativo.
+                    
+                            WEB ULTIMATE POSSUI:
+                            - Todos os recursos do WEB PRÓ;
+                            - Gestão de Arquivos.
+                    
+                            DIFERENCIAIS DO ULTIMATE:
+                            - Configurações de horário que passam da 00:00;
+                            - Gestão de Arquivos (pago à parte);
+                            - Reconhecimento facial online/offline (licença paga à parte);
+                            - Pesquisas de QVT;
+                            - Registro de atividades diárias (usado muito para motoristas);
+                            - Feriados por departamentos;
+                            - Logins separados por departamentos e empresas (caso a empresa possua mais de um CNPJ);
+                            - Separação de extras após a meia-noite;
+                            - Personalização de itens do sistema.`, this)">
+                                <i class="fas fa-copy copy-icon"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm" onclick="DiferencaSistema()">
+                                <i class="fas fa-file-pdf"></i>
+                            </button>
+                        </div>
+                    </div> <br>
+
+                    <h5 class="font-weight-bold">MIGRAÇÃO</h5>
+                    <div class="command-item">  
+                        <span><strong>MIGRAÇÃO OFF/WEB: </strong>Gostaria de aproveitar a oportunidade para apresentar a você, em nome da SONODA PONTO, o nosso sistema WEB – uma evolução do seu sistema atual offline. Com a versão web, não há necessidade de instalação local no computador, e o acesso pode ser feito de qualquer lugar, com login e senha para cada gestor. Além disso, você conta com backups em nuvem, proporcionando mais segurança e disponibilidade. Caso algo aconteça com a sua máquina, o sistema continuará acessível sem nenhum impacto, já que ele é totalmente baseado em nuvem. <br>
+                        Nosso sistema é ainda mais completo para a gestão de funcionários. É possível monitorar afastamentos, férias, faltas e presenças com facilidade. Ele também tem gestão de arquivos (Adicional à parte) e permite o envio de holerites, atestados e outros documentos, como a assinatura eletrônica do cartão de ponto, garantindo praticidade e eficiência. <br>
+                        Além disso, o sistema permite que os funcionários registrem seus pontos através de um aplicativo exclusivo no celular. Caso habilitado, é possível configurar um perímetro especial, com monitoramento via geolocalização, reconhecimento facial ou foto, aumentando a precisão e segurança. <br>
+                        Outra grande vantagem é que, por ser em nuvem, não é necessário disponibilizar o computador para o suporte. Nós conseguimos resolver qualquer questão diretamente daqui. <br>
+                        Quanto ao custo, ele é diferente do seu sistema atual, pois nosso sistema oferece recursos mais completos e funcionalidades avançadas que o sistema offline não conseguiria proporcionar. <br><br>
+                        </span>
+                        <button class="btn btn-primary btn-sm" onclick="copyText('Gostaria de aproveitar a oportunidade para apresentar a você, em nome da SONODA PONTO, o nosso sistema WEB – uma evolução do seu sistema atual offline. Com a versão web, não há necessidade de instalação local no computador, e o acesso pode ser feito de qualquer lugar, com login e senha para cada gestor. Além disso, você conta com backups em nuvem, proporcionando mais segurança e disponibilidade. Caso algo aconteça com a sua máquina, o sistema continuará acessível sem nenhum impacto, já que ele é totalmente baseado em nuvem. \nNosso sistema é ainda mais completo para a gestão de funcionários. É possível monitorar afastamentos, férias, faltas e presenças com facilidade. Ele também tem gestão de arquivos (Adicional à parte) e permite o envio de holerites, atestados e outros documentos, como a assinatura eletrônica do cartão de ponto, garantindo praticidade e eficiência.\nAlém disso, o sistema permite que os funcionários registrem seus pontos através de um aplicativo exclusivo no celular. Caso habilitado, é possível configurar um perímetro especial, com monitoramento via geolocalização, reconhecimento facial ou foto, aumentando a precisão e segurança.\nOutra grande vantagem é que, por ser em nuvem, não é necessário disponibilizar o computador para o suporte. Nós conseguimos resolver qualquer questão diretamente daqui.\nQuanto ao custo, ele é diferente do seu sistema atual, pois nosso sistema oferece recursos mais completos e funcionalidades avançadas que o sistema offline não conseguiria proporcionar.', this)">
+                            <i class="fas fa-copy copy-icon"></i> 
+                        </button>
+                    </div> <br>
+
+                    <h5 class="font-weight-bold">GESTÃO DE ARQUIVOS</h5>
+                    <div class="command-item">
+                        <span>
+                            <strong>CHAT PARA GESTÃO DE ARQUIVOS: </strong> <br><br>
+                            Olá, tudo bem? <br><br>
+                            Sou o Tec. Alexandre e gostaria de oferecer para sua empresa um novo adicional do sistema Ultimate: a Gestão de Arquivos! <br><br>
+
+                            Com essa funcionalidade, você pode anexar documentos como avisos de férias e holerites, e os funcionários assinam diretamente pelo celular, tudo sem papel e registrado na nuvem. <br><br>
+
+                            Esse recurso tem um custo bem pequeno adicional, mas acredito que será um grande benefício para sua empresa! <br><br>
+                            Ficou com duvida ? segue uma apresentação rápida:  https://youtu.be/H6rDR4Suc1U?si=oLCsQrV9ymVm1h9N
+                        </span>
+                        <button class="btn btn-primary btn-sm" onclick="copyText('Olá, tudo bem? \n\nSou o Tec. Alexandre e gostaria de oferecer para sua empresa um novo adicional do sistema Ultimate: a Gestão de Arquivos! \n\nCom essa funcionalidade, você pode anexar documentos como avisos de férias e holerites, e os funcionários assinam diretamente pelo celular, tudo sem papel e registrado na nuvem. \n\nEsse recurso tem um custo bem pequeno adicional, mas acredito que será um grande benefício para sua empresa! \n\nFicou com duvida? Segue o vídeo de uma apresentação rápida: https://youtu.be/H6rDR4Suc1U?si=oLCsQrV9ymVm1h9N', this)">
+                            <i class="fas fa-copy copy-icon"></i> 
+                        </button>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>  
+        document.addEventListener("DOMContentLoaded", function () {
+            const tecnicoSelect = document.getElementById("tecnico-select");
+            const nomeTecnicoSpan = document.getElementById("nome-tecnico");
+
+            // Recuperar o nome salvo no localStorage e atualizar tudo
+            const savedName = localStorage.getItem("nome-tecnico");
+            if (savedName) {
+                tecnicoSelect.value = savedName;
+                nomeTecnicoSpan.textContent = savedName; // Atualiza no texto
+            }
+
+            // Quando mudar o técnico, atualizar no localStorage e no texto
+            tecnicoSelect.addEventListener("change", function () {
+                const selectedName = tecnicoSelect.value;
+                nomeTecnicoSpan.textContent = selectedName;
+                localStorage.setItem("nome-tecnico", selectedName);
+            });
+        });
+
+        function copyTextWithName() {
+            const nomeTecnico = document.getElementById("tecnico-select").value;
+            const texto = `Olá, tudo bem? Aqui é ${nomeTecnico}, como posso te ajudar? :)`;
+
+            // Criar um campo temporário para copiar o texto
+            const tempInput = document.createElement("textarea");
+            tempInput.value = texto;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            // Efeito de "piscar" no botão
+            const copyButton = document.getElementById("copy-button");
+            copyButton.classList.add("blink");
+            setTimeout(() => {
+                copyButton.classList.remove("blink");
+            }, 1000);
+        }
+        function searchContent() {
+            // Obtém o valor da pesquisa e converte para minúsculo
+            const searchQuery = document.getElementById('search-input').value.toLowerCase();
+    
+            // Seleciona todos os itens de comando, incluindo h5 e outros
+            const commandItems = document.querySelectorAll('.command-item, h5 ');
+    
+            // Itera sobre cada item e verifica se ele contém o texto da pesquisa
+            commandItems.forEach(item => {
+                const text = item.innerText.trim().toLowerCase();  // Garantindo que o texto não tenha espaços extras
+        
+                // Se o item contém o texto da pesquisa, exibe o item
+                if (text.includes(searchQuery)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Associando a função ao evento de digitação
+        document.getElementById('search-input').addEventListener('input', searchContent);
+
+        // Associando a função ao evento de digitação
+        document.getElementById('search-input').addEventListener('input', searchContent);
+
+        // Associando a função ao evento de digitação
+        document.getElementById('search-input').addEventListener('input', searchContent);
+
+        // Função para alternar entre as abas
+        function showTab(tabName) {
+            const allTabs = document.querySelectorAll('.tab-pane');
+            const allNavLinks = document.querySelectorAll('.nav-link');
+
+            // Remover a classe 'active' de todas as abas e links
+            allTabs.forEach(tab => tab.classList.remove('active'));
+            allNavLinks.forEach(link => link.classList.remove('active'));
+
+            // Adiciona a classe 'active' na aba e no link da aba
+            document.getElementById(tabName).classList.add('active');
+            document.getElementById(`mens_${tabName.toLowerCase()}`).classList.add('active');
+        }
+
+        // Recupera a aba ativa do localStorage ao carregar a página
+        window.onload = function() {
+            // Tenta pegar a aba ativa do localStorage ou define 'Chamado' como padrão
+            const activeTab = localStorage.getItem('activeTab') || 'Chamado';
+            
+            // Chama a função para mostrar a aba ativa ao carregar
+            showTab(activeTab);
+        };
+
+        // Função para recarregar a página e armazenar a aba ativa
+        function reloadPage(tabName) {
+            // Salva a aba selecionada no localStorage
+            localStorage.setItem('activeTab', tabName);
+
+            // Recarrega a página
+            location.reload();
+        } 
+
+        function calcularValorFinal() {
+            // Obter os valores dos campos de "valor atual" e "acréscimo mensal"
+            const valorAtual = parseFloat(document.getElementById('valorAtual').value) || 0;
+            const acrescimoMensal = parseFloat(document.getElementById('acrescimoMensal').value) || 0;
+
+            // Calcular o valor final
+            const valorFinal = valorAtual + acrescimoMensal;
+
+            // Definir o valor final no campo correspondente
+            document.getElementById('valorFinal').value = valorFinal.toFixed(2);
+        } 
+
+        function copyFinalValue() {
+                const numFuncionarios = document.getElementById('numFuncionarios').value;
+                const valorAtual = document.getElementById('valorAtual').value;
+                const acrescimoMensal = document.getElementById('acrescimoMensal').value;
+                const valorFinal = document.getElementById('valorFinal').value;
+
+                // Cria um texto formatado com quebras de linha
+                const textoParaCopiar = `ADICIONAL DE ${numFuncionarios} FUNCIONÁRIOS\n` +
+                                        `VALOR ATUAL R$ ${valorAtual}\n` +
+                                        `COM ACRÉSCIMO DE R$ ${acrescimoMensal}\n` +
+                                        `VALOR FINAL R$ ${valorFinal}`;
+
+                // Cria um elemento de texto temporário para copiar o conteúdo
+                const tempInput = document.createElement('textarea');
+                document.body.appendChild(tempInput);
+                tempInput.value = textoParaCopiar;
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+
+                // Obtém o botão de cópia e aplica a animação de cópia
+                const copyButton = document.getElementById('copyButton');
+                copyButton.classList.add('blink');
+
+                // Remove a classe de animação após um tempo
+                setTimeout(() => {
+                    copyButton.classList.remove('blink');
+                }, 1800); // A duração de 1800ms é suficiente para a animação de cópia
+        }  
+
+        function formatarMoeda(input) {
+            // Remove qualquer caractere que não seja número
+            let valor = input.value.replace(/\D/g, '');
+        
+            // Verifica se o valor tem mais de 2 dígitos após a vírgula
+            if (valor.length > 2) {
+                valor = valor.slice(0, -2) + ',' + valor.slice(-2);
+            }
+
+            // Se o valor for menor que 2 dígitos, apenas coloca a vírgula
+            if (valor.length === 1) {
+                valor = '0,' + valor;
+            }
+
+            // Coloca a vírgula separando os milhares
+            if (valor.length > 6) {
+                valor = valor.replace(/(\d)(\d{3})(\d{3})/, '$1.$2.$3');
+            }
+
+            // Atualiza o valor do input
+            input.value = valor;
+        } 
+
+        function reloadPage(tabName) {
+            // Salva a aba selecionada no localStorage
+            localStorage.setItem('activeTab', tabName);
+
+            // Recarrega a página
+            location.reload();
+        }
+
+        window.onload = function() {
+            // Recupera a aba ativa do localStorage ou define 'Chamado' como padrão
+            const activeTab = localStorage.getItem('activeTab') || 'Chamado';
+
+            // Remove as classes 'active' de todas as abas e links
+            const allTabs = document.querySelectorAll('.tab-pane');
+            const allNavLinks = document.querySelectorAll('.nav-link');
+            allTabs.forEach(tab => tab.classList.remove('active', 'show'));
+            allNavLinks.forEach(link => link.classList.remove('active'));
+
+            // Adiciona a classe 'active' na aba e no link da aba ativa
+            document.getElementById(activeTab).classList.add('active', 'show');
+            document.getElementById(`mens_${activeTab.toLowerCase()}`).classList.add('active');
+        }; 
+
+        function copyText(link, button) {
+            // Usando a API Clipboard moderna
+            navigator.clipboard.writeText(link).then(() => {
+                // Adiciona a classe de piscar no botão
+                button.classList.add('blink');
+            
+                // Remove a classe após 1 segundo para restaurar o estado original
+                setTimeout(() => {
+                    button.classList.remove('blink');
+                }, 1000);
+            })
+            .catch(err => {
+                console.error('Erro ao copiar o link:', err);
+            });
+        }  
+
+        function toggleMenu(menu) {
+            const submenu = document.getElementById(menu + '-submenu');
+            const menuItem = document.getElementById(menu + '-link');
+            submenu.style.display = submenu.style.display === 'none' || submenu.style.display === '' ? 'block' : 'none';
+            menuItem.classList.toggle('submenu-open');
+        }
+
+        function showTab(tabId) {
+            // Remove a classe active de todas as abas
+            $('.nav-link').removeClass('active');
+    
+            // Adiciona a classe active à aba clicada
+            $('#' + tabId + '-tab').addClass('active');
+    
+            // Remove a classe active de todos os conteúdos de abas
+            $('.tab-pane').removeClass('active');
+    
+            // Exibe o conteúdo da aba clicada
+            $('#' + tabId).addClass('active');
+        } 
+    </script>
+
+</body>
+</html>
